@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ZipPortal - Calendary</title>
+    <meta name="description" content="zippo dashboard">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- style -->
+    <link rel="stylesheet" href="../assets/main.css">
+    <!-- icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/arrobefr-jquery-calendar-bs4@1.0.3/dist/css/jquery-calendar.min.css">
+    <link rel="stylesheet" href="../js/jquery.min.css">
+</head>
+
+<body>
+    <div class="grid-container">
+        <!-- Header -->
+        <!-- Header -->
+        <header class="header">
+            <div class="menu-icon">
+                <span class="material-icons-outlined">
+                    <i class="bi bi-list"></i>
+                </span>
+            </div>
+            <!-- navigation search -->
+            <div class="search-box">
+                <!-- backend in js -->
+                <form class="form" method="post">
+                    <button class="btn-search" type="button">
+                        <i class="bi bi-search"></i>
+                    </button>
+                    <input type="search" 
+                           maxlength="22"
+                           class="input-search input" 
+                           id="searchbar"
+                           aria-controls="false" 
+                           placeholder="Type to Search..."
+                           onkeyup="searchBar();" 
+                           name="search"
+                           autocomplete="off">
+                    <!-- result of research --> 
+                    <ol id='list'>
+                        <li class="results">
+                            <i class="bi bi-search"></i>
+                            <a href="/index.html" target="_self">Home</a>
+                        </li>
+                        <li class="results">
+                            <i class="bi bi-search"></i>
+                            <a href="./pages/Settings.html" target="_self">Settings</a>
+                        </li>
+                        <li class="results">
+                            <i class="bi bi-search"></i>
+                            <a href="" target="_self">Account</a>
+                        </li>
+                        <li class="results">
+                            <i class="bi bi-search"></i>
+                            <a href="" target="_self">Dark mode</a>
+                        </li> 
+                        <li class="results">
+                            <i class="bi bi-search"></i>
+                            <a href="./pages/Calendary.html" target="_self">Calendary</a>
+                        </li>
+                        <li class="results">
+                            <i class="bi bi-search"></i>
+                            <a href="" target="_self">log out</a>
+                        </li>
+                        <li class="results">
+                            <i class="bi bi-search"></i>
+                            <a href="" target="_self">email</a>
+                        </li>
+                        <!-- no find results -->
+                        <div class="no-find"></div>
+                    </ol>    
+                </form> 
+            </div>
+
+            <div class="header-right">
+                <!-- toggle -->
+                <span class="material-icons-outlined toggle" onclick="toggleDropdown();">
+                    <i class="bi bi-person-circle account"></i>
+                </span>
+
+                <!-- hide pop-up -->
+                <div class="content-user" id="myDropdown">
+                    <span class="material-icons-outlined user-main">
+                        <img src="./public/fav.png" alt="user" class="img" title="user">
+                        <div class="user-info">
+                            <p class="strong">Account name: </p>
+                            <p class="light">Matteo Manià</p>
+                        </div>
+                    </span>
+                    <span class="material-icons-outlined">
+                        <i class="bi bi-envelope-fill"></i>
+                        e-mail
+                    </span>
+                    <!-- logout -->
+                    <span class="material-icons-outlined logout">
+                        <i class="bi bi-box-arrow-right"></i>
+                        log-out account
+                    </span>
+                </div>
+            </div>
+        </header>
+        <!-- End Header -->
+
+        <!-- Sidebar -->
+        <aside id="sidebar" class="sidebar">
+            <div class="sidebar-title">
+                <div class="sidebar-brand">
+                    <span class="material-icons-outlined brand-title">
+                        Ziportal &reg;
+                    </span>
+                </div>
+                <span class="material-icons-outlined" id="sidebar-toggle">
+                    <i class="bi bi-list"></i>
+                </span>
+            </div>
+            <!-- navbar -->
+            <div class="content-sidebar">
+                <ul class="sidebar-list">
+                    <li class="sidebar-list-item">
+                        <a href="../index.html">
+                            <span class="material-icons-outlined">
+                                <i class="bi bi-grid-1x2-fill"></i>
+                            </span> Dashboard
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a href="../pages/Calendary.html">
+                            <span class="material-icons-outlined">
+                                <i class="bi bi-calendar-event"></i>
+                            </span> 
+                            Calendary
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a href="../pages/Settings.html">
+                            <span class="material-icons-outlined">
+                                <i class="bi bi-gear"></i>
+                            </span> Settings
+                        </a>
+                    </li>
+                </ul>
+                <ul class="sidebar-list bottom-list">
+                    <li class="sidebar-list-item">
+                        <!-- dark mode button -->
+                        <span class="material-icons-outlined darkBtn">
+                            <i class="bi bi-brightness-high"></i>
+                        </span>
+                        Dark-mode
+                    </li>
+                    <li class="sidebar-list-item">
+                        <span class="material-icons-outlined">
+                            <i class="bi bi-github"></i>
+                        </span>
+                        Documentation
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <!-- End Sidebar -->
+
+        <!-- Main -->
+        <main class="main-container">
+            <div class="main-title">
+                <p class="font-weight-bold">Calendary</p>
+            </div>
+            
+            <div id="calendar"></div>
+        </main>
+        
+        <script> $('#calendar').calendar();</script>
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/script.js" async defer></script>
+    </body>
+</html>
