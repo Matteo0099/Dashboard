@@ -7,5 +7,5 @@ my dashboard is cooming soon...
 >3. Calendary
 >4. HomePage with all activities
 
->**Cooming soon:**
->-The user' account
+>**Cooming soon:** <br>
+> --The user' account
