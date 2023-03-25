@@ -16,11 +16,39 @@ sidebarToggle.addEventListener("click", function () {
 
 function openSidebar() {
     sidebar.classList.add("sidebar-responsive");
+
+    if(body.classList.contains('dark')) {
+        sidebar.classList.add('activeDark');
+    } else {
+        sidebar.classList.add('active');
+    }
 }
 
 function closeSidebar() {
     sidebar.classList.remove("sidebar-responsive");
+
+    if(body.classList.contains('dark')) {
+        sidebar.classList.remove('activeDark');
+    } else {
+        sidebar.classList.remove('active');
+    }
 }
+
+// Dark mode toggle button
+let btnDarkMode = document.querySelector('.darkBtn');
+btnDarkMode.addEventListener("click", function () {
+    body.classList.toggle('dark');
+
+    if(sidebar.classList.contains('sidebar-responsive')) {
+        if(body.classList.contains('dark')) {
+            sidebar.classList.remove('active');
+            sidebar.classList.add('activeDark');
+        } else {
+            sidebar.classList.remove('activeDark');
+            sidebar.classList.add('active');
+        }
+    }
+});
 
 
 // Get the button and dropdown menu
@@ -96,17 +124,3 @@ function searchBar() {
         noFind.innerHTML = "";
     }
 }
-
-
-
-
-
-/**
- * Dark mode
-*/
-let btnDarkMode = document.querySelector('.darkBtn')
-let BodyDark = document.body;
-
-btnDarkMode.addEventListener("click", function () {
-    BodyDark.classList.toggle('dark');
-});
