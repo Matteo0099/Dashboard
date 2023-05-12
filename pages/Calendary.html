@@ -18,8 +18,10 @@
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/arrobefr-jquery-calendar-bs4@1.0.3/dist/css/jquery-calendar.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/arrobefr-jquery-calendar-bs4@1.0.3/dist/css/jquery-calendar.min.css">
     <link rel="stylesheet" href="../js/jquery.min.css">
 </head>
 
@@ -40,16 +42,9 @@
                     <button class="btn-search" type="button">
                         <i class="bi bi-search"></i>
                     </button>
-                    <input type="search" 
-                           maxlength="22"
-                           class="input-search input" 
-                           id="searchbar"
-                           aria-controls="false" 
-                           placeholder="Type to Search..."
-                           onkeyup="searchBar();" 
-                           name="search"
-                           autocomplete="off">
-                    <!-- result of research --> 
+                    <input type="search" maxlength="22" class="input-search input" id="searchbar" aria-controls="false"
+                        placeholder="Type to Search..." onkeyup="searchBar();" name="search" autocomplete="off">
+                    <!-- result of research -->
                     <ol id='list'>
                         <li class="results">
                             <i class="bi bi-search"></i>
@@ -66,7 +61,7 @@
                         <li class="results">
                             <i class="bi bi-search"></i>
                             <a href="" target="_self">Dark mode</a>
-                        </li> 
+                        </li>
                         <li class="results">
                             <i class="bi bi-search"></i>
                             <a href="./pages/Calendary.html" target="_self">Calendary</a>
@@ -81,8 +76,8 @@
                         </li>
                         <!-- no find results -->
                         <div class="no-find"></div>
-                    </ol>    
-                </form> 
+                    </ol>
+                </form>
             </div>
 
             <div class="header-right">
@@ -118,9 +113,9 @@
         <aside id="sidebar" class="sidebar">
             <div class="sidebar-title">
                 <div class="sidebar-brand">
-                    <span class="material-icons-outlined brand-title">
+                    <a href="/" class="material-icons-outlined brand-title">
                         Ziportal &reg;
-                    </span>
+                    </a>
                 </div>
                 <span class="material-icons-outlined" id="sidebar-toggle">
                     <i class="bi bi-list"></i>
@@ -140,7 +135,7 @@
                         <a href="../pages/Calendary.html">
                             <span class="material-icons-outlined">
                                 <i class="bi bi-calendar-event"></i>
-                            </span> 
+                            </span>
                             Calendary
                         </a>
                     </li>
@@ -176,12 +171,22 @@
             <div class="main-title">
                 <p class="font-weight-bold">Calendary</p>
             </div>
-            
-            <div id="calendar"></div>
+
+            <div id="calendar" class="calendar"></div>
         </main>
-        
-        <script> $('#calendar').calendar();</script>
+
         <script src="../js/jquery.min.js"></script>
         <script src="../js/script.js" async defer></script>
-    </body>
+        <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.7/index.global.min.js'></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function () {
+                var calendarEl = document.getElementById('calendar');
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                    initialView: 'dayGridMonth'
+                });
+                calendar.render();
+            });
+        </script>
+</body>
+
 </html>

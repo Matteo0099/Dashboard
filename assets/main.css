@@ -20,7 +20,7 @@ body {
 /*
     Dark mode
 */
-.dark, .dark > * {
+.dark, .dark>* {
     color: #fefefe !important;
     background-color: #21232d !important;
     transition: all 250ms cubic-bezier(0.39, 0.575, 0.565, 1);
@@ -69,6 +69,7 @@ body {
 
 .main-title {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
 
@@ -354,7 +355,7 @@ span {
     font-size: 1.1rem;
 }
 
-.sidebar-list > .sidebar-list-item {
+.sidebar-list>.sidebar-list-item {
     min-height: 45px;
 }
 
@@ -380,6 +381,8 @@ span {
     align-items: flex-start;
     flex-direction: column;
     background-color: inherit;
+    position: static;
+    /*work*/
     z-index: 99999;
 }
 
@@ -395,7 +398,7 @@ span {
 }
 
 .sidebar-list-item:hover {
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .sidebar-list-item a {
@@ -423,9 +426,11 @@ i.bi.bi-search {
 .sidebar-responsive {
     left: 0 !important;
 }
+
 .active {
     background-color: #fff !important;
 }
+
 .activeDark {
     background-color: #21232d !important;
 }
@@ -517,11 +522,61 @@ i.bi.bi-search {
     }
 }
 
+/* settings */
+.container {
+    max-width: 100%;
+    width: 100%;
+    display: grid;
+    place-content: center;
+    text-align: left;
+    margin-left: 1rem;
+    grid-template-columns: minmax(100%, 1fr);
+}
+
+.setting__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 1rem;
+}
+
+.item-p {
+    font-size: clamp(1rem, 3vw, 1.45rem);
+}
+
+.plus, .less {
+    padding: 10px 18px;
+    background-color: #bdbdbd;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+input[type="checkbox"] {
+    color: #bebebe !important;
+    width: 28px;
+    height: 28px;
+    color-scheme: white;
+}
+
+.reset {
+    padding: 12px 28px;
+    background-color: #fefefe;
+    color: #21232d;
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
 /* reset by cssreset.tk */
 *,
 *::after,
 *::before {
     box-sizing: border-box;
+}
+
+*::first-letter {
+    text-transform: uppercase;
 }
 
 a,
@@ -661,8 +716,8 @@ button {
     padding: 0;
     cursor: pointer;
     appearance: none;
-        -webkit-appearance: none;
-            -moz-appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 
 blockquote,

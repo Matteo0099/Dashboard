@@ -116,9 +116,9 @@
         <aside id="sidebar" class="sidebar">
             <div class="sidebar-title">
                 <div class="sidebar-brand">
-                    <span class="material-icons-outlined brand-title">
+                    <a href="/" class="material-icons-outlined brand-title">
                         Ziportal &reg;
-                    </span>
+                    </a>
                 </div>
                 <span class="material-icons-outlined" id="sidebar-toggle">
                     <i class="bi bi-list"></i>
@@ -174,9 +174,33 @@
         <main class="main-container">
             <div class="main-title">
                 <p class="font-weight-bold">Settings</p>
+                <div class="container">
+                    <!-- all settings -->
+                    <ul class="setting__list">
+                        <li class="list__item">
+                            <p class="item-p">zoom: </p>
+                            <button class="plus">+</button>
+                            <span aria-selected="true">100%</span>
+                            <button class="less">-</button>
+                        </li>
+                        <li class="list__item">
+                            <p class="item-p">change font size:</p>
+                            <button class="plus">+</button>
+                            <span aria-selected="true">16px</span>
+                            <button class="less">-</button>
+                        </li>
+                        <li class="list__item">
+                            <p class="item-p">prefer motion reduce:</p>
+                            <input type="checkbox" role="checkbox" class="prefer-reduce" />
+                        </li>
+                        <li class="list__item">
+                            <p class="item-p">Reset all settings</p>
+                            <button class="reset" onclick="resetAllSettings()">reset</button>
+                        </li>
+                    </ul>
+                </div>
             </div>
-
         </main>
-        <script src="../js/script.js" async defer></script>
+        <script src="../js/script.js" defer></script>
 </body>
 </html>
