@@ -89,7 +89,7 @@ body {
 }
 
 .content-user {
-    display: none;
+    /* display: none; */
     position: fixed;
     background-color: #fefefe !important;
     color: #555555 !important;
@@ -98,7 +98,7 @@ body {
     margin-top: 28px;
     width: 190px;
     right: 1px;
-    padding: 16px;
+    padding: 12px;
     border-radius: 8px;
 }
 

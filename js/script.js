@@ -17,7 +17,7 @@ sidebarToggle.addEventListener("click", function () {
 function openSidebar() {
     sidebar.classList.add("sidebar-responsive");
 
-    if(body.classList.contains('dark')) {
+    if (body.classList.contains('dark')) {
         sidebar.classList.add('activeDark');
     } else {
         sidebar.classList.add('active');
@@ -27,7 +27,7 @@ function openSidebar() {
 function closeSidebar() {
     sidebar.classList.remove("sidebar-responsive");
 
-    if(body.classList.contains('dark')) {
+    if (body.classList.contains('dark')) {
         sidebar.classList.remove('activeDark');
     } else {
         sidebar.classList.remove('active');
@@ -38,9 +38,10 @@ function closeSidebar() {
 let btnDarkMode = document.querySelector('.darkBtn');
 btnDarkMode.addEventListener("click", function () {
     body.classList.toggle('dark');
+    localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
 
-    if(sidebar.classList.contains('sidebar-responsive')) {
-        if(body.classList.contains('dark')) {
+    if (sidebar.classList.contains('sidebar-responsive')) {
+        if (body.classList.contains('dark')) {
             sidebar.classList.remove('active');
             sidebar.classList.add('activeDark');
         } else {
@@ -50,23 +51,27 @@ btnDarkMode.addEventListener("click", function () {
     }
 });
 
+// Get theme from localStorage and set it 
+let theme = localStorage.getItem('theme');
+if (theme === 'dark') {
+    body.classList.add('dark');
+}
+
 
 // Get the button and dropdown menu
 var button = document.querySelector(".toggle");
 var dropdown = document.querySelector(".content-user");
 
 // Show or hide the dropdown menu when the button is clicked
-function toggleDropdown() {
-    if (dropdown.style.display === "none") {
+button.addEventListener("click", function () {
+    if (dropdown.style.display == "none") {
         dropdown.style.display = "flex";
         dropdown.classList.add('hide')
-        document.addEventListener("click", outsideDropdown);
     } else {
         dropdown.style.display = "none";
         dropdown.classList.remove('hide')
-        document.removeEventListener("click", outsideDropdown);
     }
-}
+})
 
 // Close the dropdown menu when the user clicks outside of it or another time press the button
 function outsideDropdown(event) {
