@@ -34,6 +34,79 @@ function closeSidebar() {
     }
 }
 
+/**
+ ***** settings *****
+ * 1)font size
+ * 2)Prefer motion reduce
+ * 3)Reset settings to default
+**/
+/** prefer motion reduce  **/
+let btnMotion = document.querySelector('.prefer-reduce');
+let labelOnOff = document.querySelector('.label-onoff');
+
+// Get the preference from localStorage
+let preferReduceMotion = localStorage.getItem('preferReduceMotion');
+
+if (preferReduceMotion === 'true') {
+    body.classList.add('prefer-reduce-motion');
+    labelOnOff.innerHTML = 'ON';
+    btnMotion.ariaChecked = 'true';
+} else {
+    body.classList.remove('prefer-reduce-motion');
+    labelOnOff.innerHTML = 'OFF';
+    btnMotion.ariaChecked = 'false';
+}
+
+btnMotion.addEventListener('click', () => {
+    body.classList.toggle('prefer-reduce-motion');
+
+    if (body.classList.contains('prefer-reduce-motion')) {
+        labelOnOff.innerHTML = 'ON';
+        localStorage.setItem('preferReduceMotion', 'true');
+        btnMotion.ariaChecked = 'true';
+    } else {
+        labelOnOff.innerHTML = 'OFF';
+        localStorage.setItem('preferReduceMotion', 'false');
+        btnMotion.ariaChecked = 'false';
+    }
+});
+
+/** font size **/
+let fontSize = localStorage.getItem('fontSize') || 16;
+let btnPlus = document.querySelector('.plus')
+let btnLess = document.querySelector('.less')
+let fontLabel = document.querySelector('.font-label')
+
+btnPlus.addEventListener('click', () => {
+    fontSize++;
+    body.style.fontSize = fontSize + 'px';
+    fontLabel.innerText = fontSize + 'px';
+    localStorage.setItem('fontSize', fontSize);
+})
+
+btnLess.addEventListener('click', () => {
+    fontSize--;
+    body.style.fontSize = fontSize + 'px';
+    fontLabel.innerText = fontSize + 'px';
+    localStorage.setItem('fontSize', fontSize);
+})
+
+/** reset settings **/
+let btnResetSettings = document.querySelector('.reset')
+
+/** reset settings **/
+btnResetSettings.addEventListener('click', () => {
+    fontSize = 16;
+    fontLabel.innerText = fontSize + 'px';
+
+    body.style.fontSize = '16px';
+    body.classList.remove('prefer-reduce-motion');
+
+    labelOnOff.innerHTML = 'OFF';
+    localStorage.setItem('preferReduceMotion', 'false');
+    localStorage.setItem('fontSize', 16);
+})
+
 // Dark mode toggle button
 let btnDarkMode = document.querySelector('.darkBtn');
 btnDarkMode.addEventListener("click", function () {
@@ -95,9 +168,6 @@ var randomCol = {
         ],
     }]
 };
-/**
- *take animation to titles 
-*/
 
 
 /**
